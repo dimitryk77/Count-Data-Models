@@ -121,8 +121,6 @@ stargazer(backward_hurdle.glm, type=c('html'),out=paste(model.path,file.name,sep
           align=TRUE, digits=2, digits.extra=2, initial.zero=TRUE, intercept.bottom=FALSE)
 
 
-
-
 ###########################
 ###Zero Inflated Regression
 ###########################
@@ -142,13 +140,9 @@ stargazer(backward_zero_inflated.glm, type=c('html'),out=paste(model.path,file.n
           align=TRUE, digits=2, digits.extra=2, initial.zero=TRUE, intercept.bottom=FALSE)
 
 
-
-
 ########################
 ###In-sample statistics
 ########################
-
-
 
 gof.ins<- function(model, dataset,  model_name, poisson_dispersion_model=FALSE ) {
   
@@ -250,7 +244,6 @@ gof.oos<- function(model, dataset,  model_name ) {
   df
 }
 
-
 #Creating dataframe with all in-sample results will be called model_metrics_out_of_sample_df
 
 
@@ -315,7 +308,6 @@ conf_matrix_in_sample<- function(model, dataset,  model_name ) {
   table_is<-round(t/r,4)
 }
 
-
 #writing confusion matrices to excel
 
 c_m_backward_poisson_ins <- as.data.frame(unclass(conf_matrix_in_sample(backward_poisson.glm, train.df, "poisson")))
@@ -363,10 +355,8 @@ conf_matrix_out_of_sample<- function(model, dataset,  model_name ) {
   # Normalize confusion matrix to rates;
   print(round(t/r,4)) 
 
-  
   print(accuracy(actual_values_cat_oos, predicted_values_cat_oos))
-  table_is<-round(t/r,4)
-  
+  table_oos<-round(t/r,4) 
 }
 
 #writing confusion matrices to excel
